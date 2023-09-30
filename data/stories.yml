@@ -1,0 +1,27 @@
+version: "3.1"
+
+stories:
+
+- story: booking Form
+  steps:
+  - action: booking_form
+  - active_loop: booking_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_booking_summary
+  - checkpoint: booking_summary
+
+- story: confirm_booking
+  steps:
+  - checkpoint: booking_summary
+  - intent: affirm
+  - action: utter_ask_email
+  - intent: enter_email_address
+  - action: utter_booking_confirmed
+
+- story: abort_booking
+  steps:
+  - checkpoint: booking_summary
+  - intent: deny
+  - action: utter_goodbye

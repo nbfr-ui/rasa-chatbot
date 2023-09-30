@@ -1,0 +1,20 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: inform_booking
+  - action: action_bla
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate booking form Form
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: booking_form
+  - active_loop: booking_form

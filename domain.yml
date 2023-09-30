@@ -1,0 +1,152 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- greet
+- inform_booking
+- single_guest
+- two_guests
+- enter_email_address
+
+forms:
+  booking_form:
+    required_slots:
+      - from_date
+      - duration
+      - number_of_guests
+      - breakfast
+      - name
+
+slots:
+  from_date:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: from_date
+    - type: from_entity
+      entity: time
+      conditions:
+      - active_loop: booking_form
+        requested_slot: from_date
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: name
+    - type: from_text
+      conditions:
+      - active_loop: booking_form
+        requested_slot: name
+  breakfast:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: from_trigger_intent
+      intent: affirm
+      value: true
+      conditions:
+      - active_loop: booking_form
+        requested_slot: breakfast
+    - type: from_trigger_intent
+      intent: deny
+      value: false
+      conditions:
+      - active_loop: booking_form
+        requested_slot: breakfast
+  duration:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: duration
+    - type: from_entity
+      entity: number
+      conditions:
+      - active_loop: booking_form
+        requested_slot: duration
+  number_of_guests:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: duration
+    - type: from_entity
+      entity: number
+      conditions:
+      - active_loop: booking_form
+        requested_slot: number_of_guests
+    - type: from_trigger_intent
+      intent: single_guest
+      value: 1
+      conditions:
+      - active_loop: booking_form
+        requested_slot: number_of_guests
+    - type: from_trigger_intent
+      intent: two_guests
+      value: 2
+      conditions:
+      - active_loop: booking_form
+        requested_slot: number_of_guests
+  email_address:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: email
+
+entities:
+- from_date
+- duration
+- number_of_guests
+- duration_of_stay
+- breakfast
+- name
+- time
+- number
+- email
+
+responses:
+  utter_greet:
+  - text: "Hi."
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_from_date:
+  - text: On which date do you arrive at our hotel?
+  utter_ask_duration:
+  - text: How many nights will you stay?
+  utter_ask_number_of_guests:
+  - text: How many guests will stay at our hotel?
+  utter_ask_breakfast:
+  - text: Would you like to have breakfast ($10 per night)?
+  utter_booking_summary:
+  - text: "Here is your booking summary: \n
+    Name of the main guest: {name}\n
+    Number of guests: {number_of_guests}\n
+    Date of arrival: {from_date}\n
+    Duration of stay: {duration}\n
+    With breakfast: {breakfast}\n
+    \n
+    Total costs: $200\n
+    \n
+    Would you like to confirm your booking? (y/n)
+  "
+  utter_ask_email:
+  - text: What is your email address?
+  utter_ask_name:
+  - text: What is the name of the main guest?
+  utter_booking_confirmed:
+  - text: Thank you for booking! A booking confirmation was sent to {email_address}.
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+- action_bla
+
