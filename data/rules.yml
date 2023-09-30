@@ -1,6 +1,15 @@
 version: "3.1"
 
 rules:
+- rule: bot_challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: respond to FAQs
+  steps:
+  - intent: faq
+  - action: utter_faq
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:

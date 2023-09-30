@@ -12,6 +12,7 @@ intents:
 - enter_number
 - enter_date
 - enter_name
+- faq
 
 forms:
   booking_form:
@@ -80,8 +81,7 @@ slots:
     type: text
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: email
+    - type: custom
 
 entities:
 - from_date
@@ -116,6 +116,12 @@ responses:
   - text: What is the name of the main guest?
   utter_booking_confirmed:
   - text: Thank you for booking! A booking confirmation was sent to {email_address}.
+  utter_faq/price:
+  - text: The price for a room in our hotel is about $100. Breakfast costs an additional $10 per night
+  utter_faq/check_in_check_out:
+  - text: Check-in time is 2 pm. Check-out time is 11am.
+  utter_faq/room_size:
+  - text: We exclusively offer standard double bed rooms suitable for up to three guests.
 
 session_config:
   session_expiration_time: 60

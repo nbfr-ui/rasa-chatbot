@@ -70,6 +70,9 @@ nlu:
     - am I talking to a human?
 - intent: inform_booking
   examples: |
+    - I want to book a hotel 
+    - I wish to make a booking
+    - I'd like to make a reservation 
     - I want to book a hotel from [1.4.2030](from_date) for [2](duration_of_stay) days for [2](number_of_guests) guests
     - I want to book a hotel from [10.10.2023](from_date) for [1](duration_of_stay) day
     - Make a reservation from [10.10.2023](from_date) for [2](duration_of_stay) nights. My name is [Joe Biden](name). My email address is (potus@us.gov)[email]
@@ -149,3 +152,22 @@ nlu:
     - [foo@bla.com](email)
     - [john.doe@gmail.com](email)
     - [jane_doe@yahoo.de](email)
+
+- intent: faq/check_in_check_out
+  examples: |
+    - When can I check in?
+    - What are the times for check-in and check-out?
+    - At what time is the check-out?
+    - Can I check in at 11 am?
+
+- intent: faq/price
+  examples: |
+    - What does a room in your hotel cost for a night?
+    - What's the price for booking a room?
+    - How much does a room cost?
+
+- intent: faq/room_size
+  examples: |
+    - What room sizes do you offer?
+    - Do you offer luxury rooms?
+    - Do you have different room sizes?
