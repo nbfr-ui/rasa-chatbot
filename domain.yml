@@ -86,6 +86,7 @@ slots:
 entities:
 - from_date
 - duration
+- until_date
 - number_of_guests
 - duration_of_stay
 - breakfast
@@ -121,6 +122,5 @@ session_config:
   carry_over_slots_to_new_session: true
 
 actions:
-- action_bla
 - validate_booking_form
 - action_booking_summary
