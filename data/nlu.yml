@@ -70,18 +70,20 @@ nlu:
     - am I talking to a human?
 - intent: inform_booking
   examples: |
-    - I want to book a hotel from [1.4.2030](from_date) for [2 days](duration_of_stay) for [2](number_of_guests) guests
-    - I want to book a hotel from [10.10.2023](from_date) for [2 days](duration_of_stay)
-    - Make a reservation from [10.10.2023](from_date) for [2 days](duration_of_stay). My name is [Joe Biden](name). My email address is (potus@us.gov)[email_address]
-    - I want to book a hotel from [10.10.2023](from_date) for [2 days](duration_of_stay). My name is [Jane Doe](name)
+    - I want to book a hotel from [1.4.2030](from_date) for [2](duration_of_stay) days for [2](number_of_guests) guests
+    - I want to book a hotel from [10.10.2023](from_date) for [1](duration_of_stay) day
+    - Make a reservation from [10.10.2023](from_date) for [2](duration_of_stay) nights. My name is [Joe Biden](name). My email address is (potus@us.gov)[email]
+    - I want to book a hotel from [10.10.2023](from_date) for [one](duration_of_stay) night. My name is [Jane Doe](name)
     - Hi. I'm [Bobby Fisher](name). I'd like to make a reservation for a hotel room from [tomorrow](from_date)
     - I wish to make a reservation for a room for [2](number_of_guests) guests. The date of arrival is the [10th of august](from_date). We'll stay for [three nights](duration_of_stay)
     - [Two](number_of_guests) guests
+    - [three](number_of_guests) guests
     - [3](number_of_guests) guests
     - Just [1](number_of_guests) guest
-    - For [one night](duration_of_stay)
-    - For [five days](duration_of_stay) 
-    - [one night](duration_of_stay)
+    - [3](duration_of_stay) days
+    - For [one](duration_of_stay) night
+    - For [five](duration_of_stay) days
+    - [One](duration_of_stay) night
     - Please book a hotel from [23th of October](from_date)
     - From [Friday](from_date)
     - From [Tuesday](from_date)
@@ -91,17 +93,43 @@ nlu:
     - Til [10th of November](end_date)
     - My name is [Patrick Hammersky](name)
     - I'm [John Doe](name)
-    - [3 days](duration_of_stay)
 
-- intent: inform_number
+- intent: enter_number
   examples: |
-    - [7](any_number)
-    - [4](any_number)
-    - [1](any_number)
-    - [three](any_number)
-    - [two](any_number)
-    - [3](any_number)
-    - [one](any_number)
+    - 3
+    - Five
+    - Two
+    - 1
+    - 7
+    - nine
+    - 2
+    - One
+
+- intent: enter_name
+  examples: |
+    - Steve
+    - Jane
+    - Alice
+    - Bob
+    - Johnny Cash
+    - Dr. Adam Smith
+    - J.K. Rowling
+    - Joe Biden
+    - Albert Einstein
+
+- intent: enter_date
+  examples: |
+    - Tomorrow
+    - On friday
+    - This Monday
+    - 10.02.2023
+    - 10th of August
+    - 7th of April
+    - 1rst of April
+    - Tuesday
+    - 10.04.
+    - 03.07.
+    - March 23rd
 
 - intent: single_guest
   examples: |
@@ -116,6 +144,6 @@ nlu:
 
 - intent: enter_email_address
   examples: |
-    - foo@bla.com
-    - john.doe@gmail.com
-    - jane_doe@yahoo.de
+    - [foo@bla.com](email)
+    - [john.doe@gmail.com](email)
+    - [jane_doe@yahoo.de](email)
