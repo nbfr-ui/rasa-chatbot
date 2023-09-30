@@ -73,6 +73,7 @@ nlu:
     - I want to book a hotel 
     - I wish to make a booking
     - I'd like to make a reservation 
+    - I will arrive eon [3rd of November](from_date)
     - I want to book a hotel from [1.4.2030](from_date) for [2](duration_of_stay) days for [2](number_of_guests) guests
     - I want to book a hotel from [10.10.2023](from_date) for [1](duration_of_stay) day
     - Make a reservation from [10.10.2023](from_date) for [2](duration_of_stay) nights. My name is [Joe Biden](name). My email address is (potus@us.gov)[email]
@@ -84,6 +85,9 @@ nlu:
     - [3](number_of_guests) guests
     - Just [1](number_of_guests) guest
     - [3](duration_of_stay) days
+    - [two](duration_of_stay) days
+    - [one](duration_of_stay) day
+    - [1](duration_of_stay) night
     - For [one](duration_of_stay) night
     - For [five](duration_of_stay) days
     - [One](duration_of_stay) night
@@ -121,6 +125,13 @@ nlu:
     - J.K. Rowling
     - Joe Biden
     - Albert Einstein
+    - Jim Cartner
+    - Helmut Schmidt
+    - Elvis Presley
+    - Marilyn Monroe
+    - Elon Musk
+    - Jim B. Dummy
+    - Herman Nobody
 
 - intent: enter_date
   examples: |
