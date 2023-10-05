@@ -41,6 +41,8 @@ def show_error_if_slot_requested(
 
 
 class ValidateBookingForm(FormValidationAction):
+    """Validates booking data provided by the user"""
+
     def name(self) -> Text:
         return "validate_booking_form"
 
@@ -110,7 +112,7 @@ class ValidateBookingForm(FormValidationAction):
             return { 'email_address': value }
 
 class ActionBookingSummary(Action):
-
+    """Creates a summary of the booking data"""
     def name(self) -> Text:
         return "action_booking_summary"
 
